@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+          /*A*/
+
+          var nom;
+          var nota1;
+          var nota2;
+          var nota3;
+
+          nom=prompt("Introduiex el nom de l'alumne");
+          nota1=prompt("Introduiex la primera nota");
+          nota2=prompt("Introduiex la segona nota");
+          nota3=prompt("Instruduiex la tercera nota");
+
+          var sumaNotes=parseInt(nota1)+parseInt(nota2)+parseInt(nota3)/3;
+
+          
+          if(sumaNotes>=5)
+          {
+              document.write("Enhorabona " +nom+ " has aprovat l'examen!");
+          }else{
+              document.write(nom + " no has aprovat l'examen");
+          }
+
+          /*B*/
+
+          var email1;
+          var email2;
+
+          email1=prompt("Introduiex el correu electronic");
+          email2=prompt("Torna a introduir el correu");
+
+          if(parseInt(email1)!=parseInt(email2))
+          {
+              document.write("Els correus son diferents");
+          }
+
+          /*C*/
+
+          var edat;
+
+          edat=prompt("Introduiex la teva edad");
+
+          if(parseInt(edat)>=18&&parseInt(edat)<65){
+              document.write("Estas en edat de fer feina.");
+          }
+
+          /*D*/
+
+          var nombre;
+
+          nombre=prompt("Introduiex un nombe");
+          if(parseInt(nombre)%2==0){
+              document.write("El nombre es par");
+          }
+
+        </script>
+    </body>
+</html>
