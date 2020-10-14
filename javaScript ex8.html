@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        
+        <script>
+           var day,month,year;
+
+           day=prompt("Introdueix un dia:");
+           month=prompt("Introdueix un mes:");
+           year=prompt("Introdueix un any");
+
+           day=parseInt(day);
+           month=parseInt(month);
+           year=parseInt(year);
+
+           if ( day == 25 || month == 12 || year == 2020){
+               document.write("Today is Christmas");
+           }
+        </script>
+       <br> 
+       <script>
+           var n1,n2,n3;
+
+            n1=prompt("Introdueix el primer numero:");
+            n2=prompt("Introdueix el segon numero:");
+            n3=prompt("Introdueix el tercer numero");
+
+            n1=parseInt(n1);
+            n2=parseInt(n2);
+            n3=parseInt(n3);
+
+            if ( n1 < 10  || n2 < 10 || n3 < 10){
+            document.write("Tots el numeros son mes petits que 10!");
+}
+       </script>
+       <br>
+       <script>
+           var x,y;
+           
+           x=prompt("Instrodueix la x");
+           y=prompt("Introdueix la y");
+
+           x=parseInt(x);
+           y=parseInt(y);
+
+           if(x==1 && y>1){
+               document.write("Firts quadrant");
+           }else{
+               if(x>2 && y<5){
+                   document.write("Seconds quadrant");
+               }else{
+                   if(x==3 && y <3){
+                       document.write("third quadrant");
+                   }else{
+                       if(x>4 && y>6){
+                           document.write("fourth cuadrant");
+                       }
+                   }
+               }
+           }
+
+       </script>
+       <br>
+       <script>
+           var salari;
+           var any;
+
+           salari=prompt("Introdueix el salari");
+           any=prompt("Anys dins la companyia");
+
+           salari=parseInt(salari);
+           any=parseInt(any);
+
+
+           if(salari<500 && any>=10){
+               document.write("El salari es: " + salari);
+           }else{
+               if(salari<500 && any < 10){
+                   document.write("El salari es: " + salari* 0.05);
+               }else{
+                   document.write("El salari es: " + salari);
+               }
+           }
+           
+       </script>
+       <br>
+       <script>
+            var n1,n2,n3;
+
+            n1=prompt("Introdueix el primer numero:");
+            n2=prompt("Introdueix el segon numero:");
+            n3=prompt("Introdueix el tercer numero");
+
+            n1=parseInt(n1);
+            n2=parseInt(n2);
+            n3=parseInt(n3);
+
+            if ( n1 < 10  || n2 < 10 || n3 < 10){
+            document.write("Alguns numeros son menors que 10");
+            }
+       </script>
+
+    </body>
+
+</html>

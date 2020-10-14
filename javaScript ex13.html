@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <header>
+
+    </header>
+    <body>
+        <script>
+            function retornaNombrePetit(v1,v2,v3){
+                if(v1<v2) return v1;
+                else if(v2<v3) return v2;
+                else return v3;
+            }
+            var v1,v2,v3;
+            v1=prompt("primer valor");
+            v2=prompt("segon valor");
+            v3=prompt("tercer valor");
+
+            v1=parseInt(v1);
+            v2=parseInt(v2);
+            v3=parseInt(v3);
+
+            var r;
+            r=retornaNombrePetit(v1,v2,v3);
+            document.write(r);
+
+        </script>
+        <br>
+        <script>
+            function sumaValors(a,b,c){
+               var sum=a+b+c; 
+            }
+            
+            a=prompt("primer valor");
+            b=prompt("segon valor");
+            c=prompt("tercer valor");
+
+            a=parseInt(a);
+            b=parseInt(b);
+            c=parseInt(c);
+
+            var r;
+            r=retornaValorsOrdenats(a,b,c);
+            document.write(r);
+        </script>
+    </body>
+</html>

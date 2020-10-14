@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            var num1,num2,num3;
+
+            num1=prompt("Introdueix el primer numero");
+            num2=prompt("Introdueix el segon numero");
+            num3=prompt("Introdueix el tercer numero");
+
+            num1=parseInt(num1);
+            num2=parseInt(num2);
+            num3=parseInt(num3);
+
+            if(num1>num2&&num3){
+                document.write(num1);
+            }else{
+                if(num2>num1&num3){
+                document.write(num2);
+            }else{
+                document.write(num3);
+                }
+            }
+            
+            var num1,num2,num3;
+
+            num1=prompt("Introdueix el primer numero");
+            num2=prompt("Introdueix el segon numero");
+            num3=prompt("Introdueix el tercer numero");
+
+            num1=parseInt(num1);
+            num2=parseInt(num2);
+            num3=parseInt(num3);
+
+            if(num1<num2&&num3){
+                document.write(num1);
+            }else{
+                if(num2<num1&num3){
+                document.write(num2);
+            }else{
+                document.write(num3);
+                }
+            }
+            
+            
+            var numero;
+            numero=prompt("Introdueix un numero del 0 a nel 999");
+            numero=parseInt(numero);
+
+            if(numero>=0 && numero<=9){
+                document.write("1 digit");
+            }else{
+                if(numero>=10 && numero <=99){
+                    document.write("2 digits");
+                }else{
+                    document.write("3 digits");
+                }
+            }
+
+            
+            var numero;
+            numero=prompt("Introduiex un nombre negatiu, positiu o cero");
+            numero=parseInt(numero);
+
+            if(numero==0){
+                document.write("Zero");
+            }else{
+                if(numero<0){
+                    document.write("Es negatiu");
+                }else{
+                    document.write("Es positiu");
+                }
+            }
+
+
+
+
+            
+        
+
+
+        </script>
+    </body>
+</html>
