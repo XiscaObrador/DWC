@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+   <head></head>
+   <body>
+       <script>
+           
+        var suma=0;
+           
+           for(var i=0;i<10;i++){
+            var numeros=prompt("introdueix un numero");
+            
+                suma+=pareseInt(numeros);
+        
+                
+           }
+
+           document.write(suma);
+
+       </script>
+       <br>
+       <script>
+           var triangles = [];
+           var x;
+
+       </script>
+       <br>
+       <br>
+       <script>
+           var multiple=5;
+
+          for(var i= 1; i<=10;i++){
+              document.write(i*multiple);
+              document.write("<br>");
+          }
+       </script>
+       <br>
+       <script>
+           var multiple;
+           multiple=prompt("Instroduiex un nombre per multiplicar");
+           multiple=parseInt(multiple);
+
+           for(var i=1;i<=10;i++){
+               document.write(i*multiple);
+               document.write("<br>");
+           }
+       </script>
+       <script>
+           var positiu=0;
+           var negatiu=0;
+           var par=0;
+           var impar=0;
+           for(var i=0;i<10;i++){
+               var n=prompt("Introduiex un nombre negatiu o positiu");
+
+               if(n > 0){
+                   positiu++;
+               }else{
+                   if(n < 0){
+                       negatiu++;
+                   }else{
+                       if(n % 2 == 0){
+                           par++;
+                       }else{
+                           if( n % 2 !=0){
+                               impar++;
+                           }
+                       }
+                   }
+               }
+           }
+
+           document.write("total positius: " + positiu);
+           document.write("Total negatius: " +negatiu);
+           document.write("Total pars: "+par);
+           document.write("Total impars: " + impar);
+       </script>
+       <script>
+          
+       </script>
+   </body> 
+</html>

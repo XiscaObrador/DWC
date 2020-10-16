@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <header>
+
+    </header>
+    <body>
+        <script>
+            function retornaNombrePetit(v1,v2,v3){
+                if(v1<v2) return v1;
+                else if(v2<v3) return v2;
+                else return v3;
+            }
+            var v1,v2,v3;
+            v1=prompt("primer valor");
+            v2=prompt("segon valor");
+            v3=prompt("tercer valor");
+
+            v1=parseInt(v1);
+            v2=parseInt(v2);
+            v3=parseInt(v3);
+
+            var r;
+            r=retornaNombrePetit(v1,v2,v3);
+            document.write("El valor mes alt es: " + r);
+
+        </script>
+        <br>
+        <script>
+            function retornaAccendent(x,y,z){
+                if(x>y && x>z && y<x && y<z) return parseInt(x),parseInt(y),parseInt(z);
+                else if(y>x && y > z && x<y && x < Z) return y,z,z;
+                else return z + x +y;
+                
+            }
+            x=prompt("primer valor");
+            y=prompt("segon valor");
+            z=prompt("tercer valor");
+
+            r=retornaAccendent(x,y,z);
+            document.write("Retona ascendent: "+ z);
+        </script>
+        <br>
+        <script>
+            function retornaPerimetre(n){
+                return n*n;
+            }
+            var n=prompt("Indica el costat d'un cuadrat i es retornara e seu perimetre:");
+
+            r=retornaPerimetre(n);
+            document.write("El perimetre del cuadrat es: " + r);
+
+        </script>
+        <br>
+        <script>
+            function retornaDigits(h){
+                if(h>=0 && h<=9) return "1 digit";
+                else if ( h>=10 && h<=99) return "2 digits";
+                else if (h>=100 && h<=999) return "3 digits";
+                else if (h>=1000 && h<9999) return "4 digits";
+                else " el nombre es masa gran";
+            }
+             var h=prompt("introdueix un nombre");
+
+             r=retornaDigits(h);
+             document.write("El numero de digits del nombre introduit es : " + r);
+        </script>
+        <br>
+        <script>
+            function retornaAVG(n1,n2,n3){
+                
+                suma = parseInt(n1)+parseInt(n2)+parseInt(n3);
+
+                return suma/3;
+            }
+
+            var n1=prompt("Posa un numero");
+            var n2=prompt("Posa un numero");
+            var n3=prompt("Posa un numero");
+            
+            
+
+            var r=retornaAVG(n1,n2,n3);
+            document.write("AVG dels 3 numeros introduits es: " + r);
+        </script>
+        <br>
+        <script>
+            function sumaNombres(n1,n2,n3,n4,n5){
+                suma=parseInt(n1)+parseInt(n2)+parseInt(n3)+parseInt(n4)+parseInt(n5);
+
+                return suma;
+            }
+
+            var n1=prompt("Posa un numero");
+            var n2=prompt("Posa un numero");
+            var n3=prompt("Posa un numero");
+            var n4=prompt("Posa un numero");
+            var n5=prompt("Posa un numero");
+
+            var r=sumaNombres(n1,n2,n3,n4,n5);
+            document.write("AVG dels 3 numeros introduits es: " + r);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+    <body>
+        <script>
+            var positiu;
+            var negatiu;
+
+            do{
+                var positiu=prompt("Introdueix un nombre positiu");
+                var negatiu=prompt("Introdueix un nombre negatiu");
+
+                var negatiu=parseInt(negatiu);
+                var positiu=parseInt(positiu);
+
+                suma = negatiu+positiu;
+
+            if(suma == 0){
+                document.write("zero");
+            }else{
+                if(suma > 0 ){
+                    document.write("positiu");
+                }else{
+                    document.write("negatiu");
+                }
+            }
+            document.write("<br>");
+            }while(suma==0);
+        
+            
+        </script>
+        <script>
+              var people=0;
+            var homes=0;
+            var dones=0;
+            var edatHome=0;
+            var donaG;
+            var idYoungMen;
+
+            do{
+
+                var id= prompt("Instrodueix la id: ");
+                var age=prompt("Introdueix la edat:");
+                var sex= prompt("Introdueix el sexe");
+
+              if(sex == dona){
+                  dones++;
+              }else{
+                  if (sex == home){
+                      homes++;
+                  }else{
+                      if( age >18 && age <65 && sex == home){
+                          edatHome++;
+                      }else{
+                          if(id>0){
+                              people++;
+                          }
+                      }
+                  }
+              }
+               
+            }while(id==0);
+
+            document.write("How many people are there? " + people);
+            document.write("How many men are there? " + homes);
+            document.write("How many women are there? " + dones);
+            document.write("How many men are between 18 and 65 years old? " + edatHome);
+        </script>
+        <br>
+        <script>
+            do{
+                var clientName=prompt("Nom client");
+                var acountNumber=prompt("Numero de compte");
+                var money = prompt("money");
+
+                document.write(clientName + " is the owner of " + acountNumber + " account with " + money + " €");
+
+                if(money > 0){
+                    total++;
+                }
+
+                document.write("total");
+
+
+            }while(clientName == null);
+        </script>
+    </body>
+</html>

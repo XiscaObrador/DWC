@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+    <body>
+        <script>
+            var x;
+            x=1;
+            
+            while(x<=50){
+                document.write(x);
+                document.write('<br>');
+                x++;
+            }
+            
+        </script>
+        <br>
+        <script>
+            var x;
+            x=50;
+            while(x>=1){
+                document.write(x);
+                document.write('<br>');
+                x--;
+            }
+        </script>
+        <br>
+        <script>
+            var x;
+            x=-50;
+            while(x<=0){
+                document.write(x);
+                document.write('<br>');
+                x++;
+            }
+        </script>
+        <br>
+        <script>
+            var x;
+            x=2;
+            while(x<=100){
+                document.write(x);
+                document.write('<br>');
+                x+=2;
+                
+            }
+        </script>
+        <br>
+        <script>
+            var x;
+            var x =11;
+
+            while(x<=275){
+                document.write(x);
+                document.write('<br>');
+                x+=11;
+                
+            }
+        </script>
+        <br>
+        <script>
+            var x,y;
+            var y=1;
+            var x = 7;
+            while(y<=10){
+                document.write(y*x),
+                document.write('<br>');
+                y++;
+            }
+        </script>
+        <br>
+        <script>
+            var i=1;
+            var suspes=0;
+            var aprovat=0;
+
+            while(i<10){
+
+                var nota=prompt("Introdueix una nota");
+
+                if(nota<5){
+                    suspes++;
+                }else{
+                    if(nota>5){
+                        aprovat++;
+                    }
+                }
+                i++;
+            }
+
+            document.write("Els aprovats son:" + aprovat);
+
+
+        </script>
+        <br>
+        <script>
+
+            var i=0;
+
+            while(i<5){
+                var altura=prompt("Introdueix el pes");
+                i++;
+            }
+        
+
+            document.write("Promitg altura: " + altura/5);
+
+
+        </script>
+        <br>
+        <script>
+           var i=0;
+            var salariP=0;
+            var salariA=0;
+            var salari=0;
+
+           while(i<5){
+               
+               var salari=prompt("Introdueix un salari");
+
+               if(salari>500 && salari<1000){
+                   salariP++;
+               }else{
+                   if(salari>1000){
+                       salariA++;
+                   }
+               }
+               i++;
+               salari+=i;
+           }
+            
+            document.write("Numero de salaris entre 500 i 1000 :" + salariP);
+            document.write("Numero de salaris majors que 1000 :" + salariA)
+            document.write("Sa suma des salaris es: " + salari);
+
+        </script>
+
+        <br>
+        <script>
+            
+            
+        </script>
+        <br>
+        <script>
+            var i=0;
+            var par=0;
+            var impar=0;
+
+            while(i<5){
+                var numero=prompt("Escriu un numero");
+
+                if(numero % 2 == 0){
+                    par ++;
+                }else{
+                    if(numero % 2 != 0){
+                        impar ++;
+                    }
+                }
+                i++;
+            }
+            document.write("Nombres impars : " +par);
+            document.write("Nombres pars :" + impar);
+        </script>
+        
+
+
+        
+    </body>
+</html>
