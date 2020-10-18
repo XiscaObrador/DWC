@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <header>
+
+    </header>
+    <body>
+        <script>
+            function llistaNumeros(numeros) {
+
+            var n;
+
+            for(n=0;n<numeros.length;n++) {
+
+            var v;
+
+            v=prompt("Introdueix un nombre : ");
+
+            numeros[n]=parseInt(v);
+            }
+            }
+            function sumaNombres(numeros) {
+
+            var total=0;
+
+            var n;
+
+            for(n=0;n<numeros.length;n++)
+
+            {
+
+            total=total+numeros[n];
+
+            }
+            
+            document.write('Llista de numeros <br>');
+
+            for(n=0;n<numeros.length;n++) {
+
+            document.write(numeros[n]+'<br>');
+
+            }
+
+            document.write('La suma de tots els numeros es :'+total);
+
+            }
+            var numeros;
+            numeros = new Array(8);
+            llistaNumeros(numeros);
+            sumaNombres(numeros);
+            
+            
+        </script>
+    </body>
+</html>

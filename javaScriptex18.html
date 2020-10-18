@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <header>
+
+    </header>
+    <body>
+        <script>
+            var s=prompt("posa una frase");
+            document.write(s + '<br>');
+
+            var paraula =prompt("posa una paraula de la frase");
+
+            var p = s.indexOf(paraula);
+
+            if(p != -1){
+                document.write(p);
+            }else{
+                document.write("the word isn't in the text."  + '<br>');
+            }
+
+            document.write('<br>');
+        </script>
+        
+        <script>
+            
+            function palindrome(frase){
+            
+            for ( var i = 0; i<frase.length;i++){
+                if(frase[i]!=frase[frase.length-i-1]){
+                    return false;
+                }
+            }
+            return true;
+            }
+
+            var frase=prompt("Escribe una palabra").toLowerCase();
+
+            if(palindrome(frase)){
+                document.write('palindrome'  + '<br>');
+            }else{
+                document.write('no palindrom'  + '<br>');
+            }
+
+        </script> 
+        <script>
+            var email = prompt("posa un emal");
+
+            var comprova = email.indexOf('@');
+
+            if(comprova != -1){
+                document.write('@ si hi hes');
+            } else{
+                document.write('@ no hi hes');
+            }
+            document.write('<br>');
+        </script>
+
+        <script>
+            var p= prompt("instrodueix una frase");
+            var mitad=p.substring(0,10);
+
+            document.write(mitad + '<br>');
+
+            var trobaCaracter=p.length-1;
+            var darreraracter=p.substring(trobaCaracter);
+
+            document.write(darreraracter + '<br>');
+
+        
+            function alReves() {
+                return p.split('').reverse().join('');
+                }
+
+                alReves(p);
+            document.write(alReves(p) + '<br>');
+
+            function espaisBlanc(){
+                return p.split('').join(" ");
+            }
+            espaisBlanc(p);
+            document.write( espaisBlanc(p) + '<br>');
+
+            function vocals(){
+
+                var suma = 0;
+                var vocals = 'aeiouAEIOU';
+
+                for(var i=0;i<p.length;i++){
+                    if(vocals.indexOf(p[i]) !== -1){
+                        suma++;
+                    }
+                }
+                return suma;
+            }
+
+            vocals(p);
+            document.write("NUMERO DE VOCALS = " + vocals(p) + '<br>');
+
+            var s=prompt("Posa una frase per imprimir amb lines separades");
+
+            function paraulesSeparades(){
+                return s.split('').join('<br>');
+            }
+
+            paraulesSeparades(s);
+
+            document.write(paraulesSeparades(s));
+
+
+            
+            
+        </script>
+    </body>
+    
+</html>

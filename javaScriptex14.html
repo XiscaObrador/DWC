@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <script>
+            // Class Add
+
+            function Add(value1,value2){
+                this.value1=value1;
+                this.value2=value2;
+                this.loadValue1=loadValue1;
+                this.loadValue2=loadValue2;
+
+            }
+
+            function loadValue1(valor){
+                this.value1=valor;
+
+            }
+            function loadValue2(valor){
+                this.value2=valor;
+
+            }
+
+        
+        </script>
+        <script>
+             // Class Person
+
+             function Person(name,age){
+                 this.name=name;
+                 this.age=age;
+             }
+
+             // Class Company
+
+             function Company(nameC, ageC){
+                 this.nameC=nameC;
+                 this.ageC=ageC;
+             }
+            
+        </script>
+    </header>
+    <body>
+        <script>
+            
+          var v1;
+          var v2;
+
+          v1 = new Add();
+          v2 = new Add();
+
+          v1.loadValue1(50);
+          v2.loadValue2(30);
+          
+          document.write("El primer valor es: " + v1.value1 + '<br>');
+          document.write("El segon valor es: " + v2.value2 + '<br>');
+          document.write("La suma dels valors es: " + (v1.value1+v2.value2));
+
+          document.write('<br>');
+
+         
+
+
+
+
+        </script>
+        <script>
+            var traballador1;
+            var treballador2;
+            traballador1=new Person("Xisca",28);
+            treballador2=new Person("Euge",25);
+
+            var empresa;
+            empresa=new Company("Gravina",18);
+
+            document.write("Primer treballador :" + traballador1.name + ", " + traballador1.age + '<br>' );
+            document.write("Segon treballador :" + treballador2.name + ", " + treballador2.age + '<br>');
+            document.write("Companyia :" + empresa.nameC + " .Anys per poder treballar : " + empresa.ageC +   '<br');
+            
+            document.write('<br>');
+            document.write('<br>');
+
+            var total=0;
+            if(treballador2.age>empresa.ageC){
+                total++;
+            }
+            if(traballador1.age>empresa.ageC){
+                total++;
+            }
+
+            document.write("Total de persones que poden treballar : "+ total);
+
+
+           
+            
+
+        </script>
+    </body>
+</html>

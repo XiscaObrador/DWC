@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <header>
+
+    </header>
+    <body>
+        <script>
+            function llistaNumeros(numeros) {
+
+            var n;
+
+            for(n=0;n<numeros.length;n++) {
+
+            var v;
+
+            v=prompt("Introdueix un nombre : ");
+
+            numeros[n]=parseInt(v);
+            }
+            }
+            function sumaNombres(numeros) {
+
+            var total=0;
+
+            var n;
+
+            for(n=0;n<numeros.length;n++){
+
+            total=total+numeros[n];
+
+            }
+            document.write("La suma de tots els numeros es : " + total + '<br>');
+            }
+
+            function AvgNombres(numeros){
+                var total=0;
+
+                var n;
+
+                var AVG;
+
+                for(n=0;n<numeros.length;n++){
+
+                total=total+numeros[n];
+
+                AVG=total/numeros.length;
+
+            }
+            document.write("La suma de tots els numeros es : " + AVG + '<br>');
+            }
+            function sumaMajors(numeros){
+                var n;
+
+                var suma = 0;
+                for(n=0;n<numeros.length;n++){
+                    if(numeros[n]>5){
+                        suma=suma+numeros[n];
+                    }
+                }
+                document.write("La suma dels numeros majors de 5 es :" + suma + '<br>');
+            }
+            function totalMajors(numeros){
+                var n;
+
+                var suma = 0;
+                for(n=0;n<numeros.length;n++){
+                    if(numeros[n]>5){
+                        suma++;
+                    }
+                }
+                document.write("Quants de numeros son majors de 5? " + suma + '<br>' );
+            }
+
+            var numeros;
+            numeros = new Array(8);
+            llistaNumeros(numeros);
+            sumaNombres(numeros);
+            AvgNombres(numeros);
+            sumaMajors(numeros);
+            totalMajors(numeros);
+
+            document.write("La llista dels numeros es : " + numeros + '<br>');
+            
+            
+        </script>
+        <script>
+            function posicions(llista){
+                
+            var i;
+            
+            for(i=0;i<llista.length;i++){
+                var m;
+                var total=0;
+                m=prompt("Instrodueix un nombre");
+                llista[i]=parseInt(m);
+                
+            }
+                document.write(llista + '<br>');
+            }
+
+            var n;
+            n=prompt("Instrodueix la grandaria de la matriu");
+            n=parseInt(n);
+            llista = new Array(n);
+            
+            posicions(llista);
+
+
+
+
+        </script>
+    </body>
+</html>
