@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+    <body>
+        <script>
+            function preu(){
+                var preu = document.getElementById('s1');
+                document.getElementById('5').value=preu.options[preu.selectedIndex].value;
+            }
+        </script>
+        <form>
+            <select id="s1" onChange="preu()">
+                <option value="6€">Peperoni</option>
+                <option value="5€">Quatro Formaggi</option>
+                <option value="4€">Procciuto</option>
+            </select>
+            <br>
+            Preu : <input type="text" id="5"><br>
+        </form>
+        <script>
+            function pro(){
+                var p=document.getElementById('Processor');
+                var z = document.getElementById('1').value=p.options[p.selectedIndex].value;
+                
+            
+                var m=document.getElementById('Monitor');
+                var y = document.getElementById('2').value=m.options[m.selectedIndex].value;
+
+           
+                var h=document.getElementById('Hard Disk');
+                var x=document.getElementById('3').value=h.options[h.selectedIndex].value;
+
+                document.getElementById("total").value = parseInt(x) +parseInt(z) + parseInt(y) + "€" ;
+                
+
+            }
+
+            
+        </script>
+        <form>
+            <select id="Processor" onchange="pro()">
+                <option value="400€"> Intel I3</option>
+                <option value="600€"> Intel I5</option>
+                <option value="800€"> Intel I7</option>
+            </select>
+            <br>
+
+            <select id="Monitor" onchange="pro()">
+                <option value="250€"> Samsung 20'</option>
+                <option value="350€"> Samsung 22'</option>
+                <option value="550€"> Samsung 26'</option>
+            </select>
+            <br>
+            <select id="Hard Disk" onchange="pro()">
+                <option value="300€"> 500 Gb</option>
+                <option value="440€"> 1 Tb</option>
+                <option value="500€"> 3 Tb</option>
+            </select>
+            <br>
+            Preu Processador: <input type="text" id="1"><br>
+            Preu Monitor: <input type="text" id="2"><br>
+            Preu Disc Dur: <input type="text" id="3"><br>
+
+            <input type="button" value="Calcula" onclick="pro()"><br>
+            <input type="text"  id="total"><br>
+            
+
+        </form>
+        <script>
+            var preu = getElementById("pizzes");
+            numero = prompt("numero de pizzes");
+
+            var d=document.getElementById('10').value=preu.options[preu.selectedIndex].value;
+
+            document.getElementById("suma").value=parseInt(numero) * parseInt(d);
+        </script>
+        <form>
+            <select id="pizzes" onChange="preu()">
+                <option value="6">Peperoni</option>
+                <option value="5">Quatro Formaggi</option>
+                <option value="4">Procciuto</option>
+            </select>
+            <br>
+            <input type="text" id="numero"><br>
+            <input type="text" id="suma">
+            
+        </form>
+    </body>
+</html>
+
+
+    
