@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+ 
+            function obriFinestra() { 
+                var f = open('','','status=yes,width=600,height=300,menubar=yes');  
+            }
+
+            function tancaFinestra(){
+                f.close();
+
+            }
+
+        </script>
+        <form>
+             <input type="button" value="Obri una nova finestra" onclick="obriFinestra()"><br>
+             <input type="button" value="Tanca sa finestra" onclick="tancaFinestra()">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+    <body>
+        <script type="text/javascript">
+            
+            function comprova(){
+            
+           // var x = document.getElementById("password");
+            
+            if(document.getElementById("password").value.length < 5){
+                alert("the password is shorter than 7 characters ");
+            }
+
+            if(document.getElementById("password").value.length > 20){
+                alert("the password is longer than 20 characters ");
+            }
+            }
+            
+            </script>
+            <form>
+            User name : <input type="text" id="username" value="user name"><br>
+            Password : <input type="text" id="password"  onblur="comprova()">
+            <br>
+            </form>
+    </body>
+</html>

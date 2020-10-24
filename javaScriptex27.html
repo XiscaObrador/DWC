@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+   <body>
+        <script>
+
+            function resaltar(x){
+                document.getElementById("1").style.color = "red";
+                document.getElementById("2").style.color = "orange";
+                document.getElementById("3").style.color = "green";
+                document.getElementById("4").style.color = "purple";
+            }
+
+        </script>
+        <table border="1">
+            <tr>
+              <th>numeros</th>
+              <th>dies</th>
+            </tr>
+            <tr>
+              <td id="1" onmouseover="resaltar(this)" >1</td>
+              <td id="2" onmouseover="resaltar(this)">2</td>
+            </tr>
+            <tr>
+              <td id="3" onmouseover="resaltar(this)">Dilluns</td>
+              <td id="4" onmouseover="resaltar(this)">Dimarts</td>
+            </tr>
+          </table>
+   </body> 
+</html>

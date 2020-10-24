@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+    <body>
+        <script>
+            function hiperLink(){
+
+                if(Math.floor(Math.random() * 4) == 0 ){
+                    window.location="https://www.google.es/";
+                }else{
+                    if(Math.floor(Math.random() * 4 ) == 1){
+                        window.location="https://www.yahoo.com/";
+                    }else{
+                        if(Math.floor(Math.random() * 4 ) == 2){
+                            window.location="https://www.bing.com/?setlang=es";
+                        }
+                    }
+                }
+            }
+        </script>
+        <script>
+
+            function emergent(){
+            var aHeight = screen.height/2;
+            var bHwidth = screen.width;
+
+            var x = window.open('','','status=yes,width='+bHwidth+',height='+aHeight+',menubar=yes');
+
+            }
+        </script>
+
+        <script>
+             function cookies(){
+
+                 var y = navigator.cookieEnabled;
+
+                 if ( y == true){
+                     alert("Cookies enabled");
+                 }else{
+                     alert("Cookies disabled");
+                 }
+
+                 
+             }
+        </script>
+
+        <a href="javascript:hiperLink()">Redireiex pàgina</a> <br>
+
+        <input type="button" value="Obri una nova finestra" onclick="emergent()"><br>
+
+        <input type="button" value="Cookies" onclick="cookies()">
+    </body>
+</html>
