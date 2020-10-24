@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+    <body>
+        <script type="text/javascript"> 
+            function showSelected() {
+            if (document.getElementById('>18').checked) {
+            alert('Pot entrar');
+            }
+            if (document.getElementById('menor18').checked) {
+            alert('No pot entrar');
+            }
+            }
+            </script>
+            <form>
+            <input type="radio" id=">18" name="A"> Older than 18 <br/>
+            <input type="radio" id="menor18" name="B">Younger than 18 <br/>
+            <input type="button" value="Acces" onClick="showSelected()">
+            </form> 
+    </body>
+</html>

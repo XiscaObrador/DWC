@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <header></header>
+    <body>
+        <script>
+            var e1;
+            var e2;
+            var e3;
+            
+            function showSports(){
+              if(document.getElementById('1').checked){
+                    e1=document.getElementById('1').name;
+              }
+
+              if(document.getElementById('2').checked){
+                    e2=document.getElementById('2').name;
+              }
+
+              if(document.getElementById('3').checked){
+                    e3=document.getElementById('3').name;
+                }
+                
+                alert(e1 + " "+ e2 +" " + e3);
+
+                
+              
+            }
+        </script>
+        <form>
+            <input type="checkbox" id="1" name="Karate"> Karate
+            <br> 
+            <input type="checkbox" id="2" name="Football">Football
+            <br>
+            <input type="checkbox" id="3" name="Tennis">Tennis
+            <br>
+            <input type="button" value="Click" onclick="showSports()">
+        </form>
+    </body>
+</html>
