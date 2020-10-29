@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+        <ul>
+            <li id="1">Chocolate blanc</li>
+            <li id="2">Chocolate negre</li>
+            <li id="3">Chocolate amb llet</li>
+            <li id="4">Chocolate amb avellanes</li>
+        </ul>
+
+        <script>
+
+            $(document).ready(function(){
+               $("#1").click(function(){
+                   $("#1").hide();
+               });
+               $("#2").click(function(){
+                   $("#2").hide();
+               });
+               $("#3").click(function(){
+                   $("#3").hide();
+               });
+               $("#4").click(function(){
+                   $("#4").hide();
+               });
+               
+            });
+        </script>
+    </body>
+</html>

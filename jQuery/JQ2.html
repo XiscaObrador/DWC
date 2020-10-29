@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+        <table border="1">
+            <tr id="primer">
+                <th>Vermell</th>
+            </tr>
+            <tr id="segon">
+                <th>Taronja</th>
+            </tr> 
+        </table>
+        <script>
+
+            $(document).ready(function(){
+                $("#primer").click(function(){
+                    $("#primer").css("background-color","red");
+                })
+            });
+
+            $(document).ready(function(){
+                $("#segon").click(function(){
+                    $("#segon").css("background-color","orange");
+                })
+            });
+        </script>
+    </body>
+</html>

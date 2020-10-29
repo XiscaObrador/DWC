@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+        <h1>El Mon</h1>
+        <p class="impar">Noticies de dia 29/10/2020</p>
+        <h1>Noticies</h1>
+        <p class="par">Descobriment d'una noava cova.</p>
+        <h1>Esports</h1>
+        <p class="impar">El Mallorca ha guanyat el partit.</p>
+        <h1>Part forana</h1>
+        <p class="par">La fira del pebre bord a Felanitx.</p>
+        <h1>El temps</h1>
+        <p class="impar">Un cap de setmana de sol i altes temperatures.</p>
+
+        <input type="button" id="10px" value="10px">
+        <input type="button" id="15px" value="15px">
+        <input type="button" id="20px" value="20px">
+
+        <script>
+
+            $(document).ready(function(){
+                $("#10px").click(function(){
+                    $("p.impar").css("font-size",10);
+                });
+                $("#15px").click(function(){
+                    $("p.impar").css("font-size",15);
+                });
+                $("#20px").click(function(){
+                    $("p.impar").css("font-size",20);
+                });
+               
+            });
+        </script>
+    </body>
+</html>
