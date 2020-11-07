@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+        <title>Mostrar head i body</title>
+
+    </head>
+    <body>
+
+        <button id="b1">Show head</button><br>
+        <button id="b2">Show body</button><br>
+
+        <script>
+
+            $(document).ready(function(){
+               $("#b1").click(function(){
+                    alert($("head").html())
+               });
+               $("#b2").click(function(){
+                    alert($("body").html())
+               });
+            });
+        </script>
+    </body>
+</html>

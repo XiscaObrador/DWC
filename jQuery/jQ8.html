@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+        <style type="text/css">
+        
+        .tbody{
+            background-color: aquamarine;
+        }
+        .thead{
+            border-radius: 20px;
+        }
+        </style>
+
+    </head>
+    <body>
+        <table id="t1" border="1">
+            <tr>
+                <th>Verd</th>
+            </tr>
+            <tr>
+                <th>Vermell</th>
+            </tr>
+            <tr>
+                <th>Groc</th>
+            </tr>
+        </table>
+        <br>
+
+        <button id="b1">Link</button><br>
+        <button id="b2">Unlink</button>
+        <script>
+
+            $(document).ready(function(){
+               $("#b1").click(function(){
+                   $("#t1 th").addClass("thead")
+               });
+               $("#b1").click(function(){
+                   $("#t1 tr").addClass("tbody")
+               });
+               $("#b2").click(function(){
+                   $("#t1 th").removeClass("thead")
+               });
+               $("#b2").click(function(){
+                   $("#t1 tr").removeClass("tbody")
+               });
+            });
+        </script>
+    </body>
+</html>

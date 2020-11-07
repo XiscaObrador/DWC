@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+
+        <a id="a" href="">enllaç</a> <br>
+
+        <button id="b1">Primer valor</button><br>
+        <button id="b2">Segon valor</button><br>
+        <button id="b3">Tercer valor</button><br>
+
+        <script>
+
+            $(document).ready(function(){
+               $("#b1").click(function(){
+                   $("a").attr("href","https://www.google.es/")
+               });
+               $("#b2").click(function(){
+                   $("a").attr("href","https://www.youtube.com/")
+               });
+               $("#b3").click(function(){
+                   $("a").attr("href","https://www.amazon.es/")
+               });
+            });
+        </script>
+    </body>
+</html>

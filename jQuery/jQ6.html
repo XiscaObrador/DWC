@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+    </head>
+    <body>
+        <table id="t1" border="1">
+            <tr>
+                <th>OFF</th>
+            </tr>
+            <tr>
+                <th>OFF</th>
+            </tr>
+            <tr>
+                <th>OFF</th>
+            </tr>
+        </table>
+        <table id="t2" border="1">
+            <tr>
+                <th>OFF</th>
+            </tr>
+            <tr>
+                <th>OFF</th>
+            </tr>
+            <tr>
+                <th>OFF</th>
+            </tr>
+        </table>
+        <br>
+        <button id="b1">ON</button>
+
+
+
+
+        <script>
+            $(document).ready(function(){
+                $("#b1").click(function(){
+                    $("#t1 th").text("ON");
+                })
+            });
+        </script>
+    </body>
+</html>
