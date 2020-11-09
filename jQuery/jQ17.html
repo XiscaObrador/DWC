@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+            <form>
+                <input type="text" value="ola">
+            </form>
+        <script>
+
+            $(document).ready(function(){
+
+                $("input").blur(function(){
+                    if($("input").val() == "")
+                    alert("El camp no pot estar buit");
+                })
+               
+            });
+        </script>
+    </body>
+</html>

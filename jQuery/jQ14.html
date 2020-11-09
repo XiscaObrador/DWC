@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+        <style type="text/css">
+        .clase{
+            background-color: aquamarine;
+        }
+        </style>
+    </head>
+    <body>
+
+        <button>Mouse</button>
+
+        <script>
+
+            $(document).ready(function(){
+               $("button").mousedown(function(){
+                $(this).addClass("clase");
+               });
+               $("button").mouseup(function(){
+                $(this).removeClass();
+               });
+               
+            });
+        </script>
+    </body>
+</html>

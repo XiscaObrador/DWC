@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+        <style type="text/css">
+        .blau{
+            color: blue;
+        }
+        .vermell{
+            color: red;
+        }
+        </style>
+    </head>
+    <body>
+        <form>
+            Texte : <input type="text" class="blau" value="pasa i canvia de color"><br>
+            Texte : <input type="text" class="blau" value="pasa i canvia de color">
+        </form>
+        <script>
+
+            $(document).ready(function(){
+                $("input").focus(function(){
+                    $(this).toggleClass("vermell");
+                })
+               
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+
+        <table  border="1">
+            <tr>
+                <th>Taula 1</th>
+            </tr>
+            <tr>
+                <th>Taula 1</th>
+            </tr>
+        </table>
+        <br>
+        <table border="1">
+            <tr>
+                <th>Taula 2</th>
+            </tr>
+            <tr>
+                <th>Taula 2</th>
+            </tr>
+        </table>
+
+        <script>
+
+            $(document).ready(function(){
+               $("table  th").mouseenter(function(){
+                   $(this).css("background-color","blue")
+               });
+               $("table th").mouseleave(function(){
+                   $(this).css("background-color","white")
+               });
+            });
+        </script>
+    </body>
+</html>

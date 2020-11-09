@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+        <style type="text/css">
+        .d1{
+            width: 200px;
+            height: 200px;
+        }
+
+        </style>
+    </head>
+    <body>
+        <div class="d1">
+
+        </div>
+
+        <script>
+
+            $(document).ready(function(){
+               $('body').mouseover(function(){
+                   $(".d1").append("<p>Mouse out of the DIV<p>");
+               })
+            });
+        </script>
+    </body>
+</html> 

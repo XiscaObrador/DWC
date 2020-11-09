@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+        <style type="text/css">
+
+        .mides{
+            width: 800px;
+            height: 70px;
+            background-color: bisque;
+        }
+
+        .petit{
+            width: 250px;
+            height: 250px;
+            background-color: bisque;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="d1" class="mides">
+        </div>
+
+        <script>
+
+            $(document).ready(function(){
+                $("#d1").dblclick(function(){
+                    $(this).toggleClass("petit");
+                });
+                $("#d1").dblclick(function(){
+                    $(this).toggleClass("mides");
+                });
+            });
+        </script>
+    </body>
+</html>
