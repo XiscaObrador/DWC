@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+        
+        <form action="jQ25.php" method="GET">
+        Primer : <input type="text" id="n1" >
+        Segon : <input type="text" id="n2"> 
+        </form>
+        <br>
+            <button id="b1">Suma</button>
+            <button id="b2">Resta</button>
+            <button id="b3">Divisio</button>
+            <button id="b4">Mltiplicacio</button>
+        <br>
+        <div id="res">
+
+        </div>
+
+        <script>
+
+            $(document).ready(function(){
+                $('#b1').click(function(){
+                    valor1 = $("#n1").val();
+                    valor2 = $("#n2").val();
+
+                    $.getJSON("jQ25.php", 
+	    		  {num_1: valor1, num_2: valor2, op:"Suma"}, Resultat);
+                });
+                $('#b2').click(function(){
+                    valor1 = $("#n1").val();
+                    valor2 = $("#n2").val();
+
+                    $.getJSON("jQ25.php", 
+	    		  {num_1: valor1, num_2: valor2, op:"Resta"}, Resultat);
+                });
+                $('#b3').click(function(){
+                    valor1 = $("#n1").val();
+                    valor2 = $("#n2").val();
+
+                    $.getJSON("jQ25.php", 
+	    		  {num_1: valor1, num_2: valor2, op:"Divisio"}, Resultat);
+                });
+                $('#b4').click(function(){
+                    valor1 = $("#n1").val();
+                    valor2 = $("#n2").val();
+
+                    $.getJSON("jQ25.php", 
+	    		  {num_1: valor1, num_2: valor2, op:"Multiplicacio"}, Resultat);
+                });
+                
+
+                function Resultat(data){
+	  	        console.log( "JSON Data: " + data );
+    			$("#res").html("Resultat : " + data);
+	            }
+
+
+                
+            });
+
+           
+        
+        </script>
+    </body>
+</html>
+

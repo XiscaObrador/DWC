@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+
+        <div>
+            <p>primer paragraf</p>
+            <p>segon paragraf</p>
+            <p>tercer paragraf</p>
+        </div>
+        <script>
+
+            $(document).ready(function(){
+               $('div').click(function(){
+                   $(this).fadeTo("slow",0.20);
+               });
+               $('div').dblclick(function(){
+                   $(this).fadeTo("slow",1);
+               })
+            });
+        </script>
+    </body>
+</html>

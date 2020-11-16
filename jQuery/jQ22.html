@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+        <style type="text/css">
+			
+			table, td, tr {
+				border: 1px solid black;
+			}
+
+		</style>
+    </head>
+    <body>
+        <table>
+			<tr>
+				<td class="t1">
+					<img id="img1" src="https://t2.ea.ltmcdn.com/es/images/8/9/4/img_cuidados_del_pelo_del_golden_retriever_20498_600.jpg" style=" height: 100px">
+					<input id="b1" type="button" value="Click me">
+				</td>
+				<td class="t2">
+					<img id="img2" src="https://www.cambio16.com/wp-content/uploads/2018/05/koala.jpg" style="height: 100px">
+					<input id="b2" type="button" value="Click me">
+				</td>
+			</tr>
+		</table>
+        <script>
+
+            $(document).ready(function(){
+                $("#b1").click(function(){
+					$("#img1").toggle("slow");
+				});
+
+				$("#b2").click(function(){
+					$("#img2").toggle("slow");
+					
+				});
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+
+        <a>www.ikea.com</a><br>
+        <a>www.zara.com</a><br>
+        <a>www.amazon.com</a><br>
+        <a>www.zara.es</a><br>
+        <a>www.amazon.es</a><br>
+        
+
+        <script>
+
+            $(document).ready(function(){
+                
+                 $('a').each(function(){
+                    if($(this).text().indexOf('.es') != -1){
+                        $(this).css("background-color","red");
+                    }
+                })               
+            
+            });
+        </script>
+    </body>
+</html>

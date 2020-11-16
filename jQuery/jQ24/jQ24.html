@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+    </head>
+    <body>
+        <div id="enll">
+        <button><a id="boto1" href="jQ24.php?codi=1">Button 1</a></button>
+        <button><a id="boto2" href="jQ24.php?codi=2">Button 2</a></button>
+        </div>  
+        <div id="d">
+            
+        </div>
+
+
+        <script>
+
+            $(document).ready(function(){
+               $('#enll a').click(imprimeix);
+
+               function imprimeix(){
+                var p=$(this).attr("href");
+                var x=$("#d");
+                x.load(p);  
+                return false;
+               }
+            });
+        </script>
+    </body>
+</html>
