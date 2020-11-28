@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+        <h2>Categoria</h2><br>
+        <input type="text" id="introduir">
+        <button id="ad">ADD</button>
+        <select id="sel">
+            <option>select one</option>
+        </select>
+        <button id="save">SAVE</button>
+        <button id="delete">DELETE</button>
+        <div id="1">
+        
+        </div>
+        <br>
+        <h2>Producte</h2>
+        CODI : <input id="codi" type="text"><br>
+        DESCRIPCIO : <input id="descripcio" type="text"><br>
+        PREU : <input type="text" id="preu"><br>
+
+        CATEGORIA : <select id="sel2">
+            <option>select one</option>
+        </select>
+        <br>
+        <button id="adp">ADD</button><br>
+        <button id="delP">DELETE</button>
+        <button id="saveP">SAVE</button>
+        <select id="producte">
+            <option>select one</option>
+        </select>
+        <table id="table1" border="1">
+            <thead>
+
+                <th>CODI</th>
+                <th>DESCRIPCIO</th>
+                <th>PREU</th>
+                <th>CATEGORIA</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+       <h2>Compra</h2> 
+
+       CATEGORIA : <select id="sel3">
+           <option>selct one</option>  
+       </select>
+
+       PRODUCTE : <select id ="sel4">
+           <option>select one</option>
+       </select>
+
+       QUANTITAT : <select id="qnt">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+
+       </select>
+
+       <button id="addComprar">ADD</button>
+       <button id="noComprar">REMOVE ALL</button>
+       <br>
+
+       DESCOMPTE(%) : <input type="number">
+
+       <button id="descompte">ADD</button>
+
+       <table id="table2" border="1">
+        <thead>
+
+            <th>CODI</th>
+            <th>DESCRIPCIO</th>
+            <th>PREU</th>
+            <th>CATEGORIA</th>
+            <th>QUANTITAT</th>
+            <th>SUBTOTAL</th>
+            
+        </thead>
+        <tbody>
+
+        </tbody>
+
+        </table>
+
+
+        <script>
+
+            $(document).ready(function(){
+               $('#ad').click(function(){
+                  var valor =  $('#introduir').val();
+                  var nou = $("<option></option>").text(valor).addClass(valor);
+                  var li = $("<li></li>").text(valor).addClass(valor);
+
+                  $('#sel , #sel2 , #sel3').append(nou);
+                  $('#1').append(li);
+                  console.log(valor);
+               });
+               $("#delete").click(function(){
+                var eliminar =  $('#introduir').val();
+                if(eliminar){
+                    $("li").remove(":contains('" + eliminar+ "')");
+                    $("option").remove(":contains('" + eliminar+ "')");
+                }
+               });
+               $('#adp').click(function(){
+                   var codi = $('#codi').val();
+                   var descr = $('#descripcio').val();
+                   var preu = $('#preu').val();
+                   var categoria = $('#sel2').val();
+                   var nouP = $("<option></option>").text(descr);
+
+                   $('#producte').append(nouP);
+
+                   var row = $("<tr></tr>");
+                   $('#table1 tbody').append(row);
+
+                   var addcodi = $("<td></td>").text(codi);
+                   var addDes = $("<td></td>").text(descr);
+                   var addpreu = $("<td></td>").text(preu);
+                   var addCat = $("<td></td>").text(categoria);
+                     
+                  
+                   $('#table1 tbody').append(addcodi);
+                   $('#table1 tbody').append(addDes);
+                   $('#table1 tbody').append(addpreu);
+                   $('#table1 tbody').append(addCat);
+
+               });
+
+               $('#delP').click(function(){
+
+                var eliminarP = $('#sel2 option').val();
+                console.log(eliminarP);
+                
+                if(eliminarP){
+                    $('#sel2 option').remove(":contains('" + eliminarP+ "')");
+                    $("td").parent().remove(":contains('" + eliminarP + "')");
+
+                }
+               });
+
+            });
+        </script>
+    </body>
+</html>

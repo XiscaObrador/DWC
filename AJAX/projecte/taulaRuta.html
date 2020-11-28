@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Rutes</h1>
+    <select id="ruta" onchange="mostrarTaula(this.value);"></select>
+    <div id="taula">
+
+    </div>
+
+    <script>
+        var xhttp = xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+	  		document.getElementById("ruta").innerHTML=this.responseText;
+  		}
+	};
+	xhttp.open("GET", "ciutatsOptions.php", true);
+	xhttp.send();
+
+	function mostrarTaula(nom) {
+		if (nom.length == 0) { 
+    		document.getElementById("taula").innerHTML = "";
+    		return;
+  		}
+		var xhttp = xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+	  		document.getElementById("taula").innerHTML=this.responseText;
+  			}
+		};
+		xhttp.open("GET", "rutaTaula.php?ruta="+nom, true);
+		xhttp.send();
+	}
+
+    </script>
+</body>
+</html>

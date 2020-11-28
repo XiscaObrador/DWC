@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RUTES>
+  <RUTA>
+    <ID>1</ID>
+    <NOM>Ruta pedra en sec</NOM>
+    <INICI>Port d'Antratx</INICI>
+    <FI>Estellencs</FI>
+    <DIFICULTAT>Moderat</DIFICULTAT>
+    <TIPUS>Senderisme</TIPUS>
+    <KM>23,06</KM>
+    <CIUTATS>
+      <CIUTAT>
+        <ID>1</ID>
+        <NOM>Andratx</NOM>
+        <CP>07159</CP>
+        <POBLACIO>11.004</POBLACIO>
+      </CIUTAT>
+      <CIUTAT>
+        <ID>2</ID>
+        <NOM>Estallencs</NOM>
+        <CP>07192</CP>
+        <POBLACIO>318</POBLACIO>
+      </CIUTAT>
+    </CIUTATS>
+  </RUTA>
+  <RUTA>
+    <ID>2</ID>
+    <NOM>Sant Salvador</NOM>
+    <INICI>Felanitx</INICI>
+    <FI>Felanitx</FI>
+    <DIFICULTAT>Fàcil</DIFICULTAT>
+    <TIPUS>Senderisme</TIPUS>
+    <KM>8,2</KM>
+    <CIUTATS>
+      <CIUTAT>
+        <ID>3</ID>
+        <NOM>Felanitx</NOM>
+        <CP>07200</CP>
+        <POBLACIO>17.497</POBLACIO>
+      </CIUTAT>
+    </CIUTATS>
+  </RUTA>
+  <RUTA>
+    <ID>3</ID>
+    <NOM>Volat per Alcudia</NOM>
+    <INICI>Alcudia</INICI>
+    <FI>Alcudia</FI>
+    <DIFICULTAT>Fàcil</DIFICULTAT>
+    <TIPUS>Eqüestre</TIPUS>
+    <KM>3,8</KM>
+    <CIUTATS>
+      <CIUTAT>
+        <ID>4</ID>
+        <NOM>Alcudia</NOM>
+        <CP>07400</CP>
+        <POBLACIO>19.793</POBLACIO>
+      </CIUTAT>
+    </CIUTATS>
+  </RUTA>    
+</RUTES>

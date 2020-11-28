@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.5.1.js"></script>
+
+    </head>
+    <body>
+
+        <form action="jQ26.php" method="POST">
+
+        <select multiple name="ciutat[]">
+            <option value="Manacor">Manacor</option>
+            <option value="Inca">Inca</option>
+            <option value="Palma">Palma</option>
+        </select>
+        <input type="submit" value="Comprova" id="sub">
+        </form>
+        <div id="resultat"></div>
+        <script>
+
+            $(document).ready(function(){
+               $('#sub').click(function(){
+                    var ciutat = $('option').attr('value');
+                    $.getJSON("jQ26.php",{ciutat_:'Mnacor'},data);
+                    return false; 
+               })
+
+               function data(data){
+                   console.log("JSON Data: " + data );
+                   $('#resultat').html(data);
+               }
+            });
+        </script>
+    </body>
+</html>
