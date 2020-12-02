@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+      <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+      <div class="container">
+        <h1>Selects Encadenats JSON</h1>
+        <form>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Ruta</label>
+            <select id="rutes" class="form-control">
+              <option value="0">Selecciona</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Model</label>
+            <select id="ciutat" class="form-control">
+            </select>
+          </div>
+        </form>
+        <br/>
+        <h4>Contingut del fitxer JSON 1:</h4>
+        <p id="json1"></p>
+        <h4>Contingut del fitxer JSON 2:</h4>
+        <p id="json2"></p>
+      </div>
+
+    <script>
+      $(document).ready(function(){
+
+        $( "#ciutat" ).prop( "disabled", true );
+
+        $("#rutes").change(function(){
+          var idruta = $("#ruta").val();
+          $("#ciutat" ).prop( "disabled", false );
+          $("#ciutat").empty();
+          loadCiutats(idruta);
+        });
+
+
+        function loadRutes() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              $("#json1").html(this.responseText);
+              var ruta = JSON.parse(this.responseText);
+              for (x in ruta) {
+                var idRuta = ruta[x].id;
+                var nomRuta = ruta[x].nom;
+                var item = $("<option/>", {value:idRuta, text:nomRuta});
+                $("#rutes").append(item);
+              }
+            }
+          };
+          xhttp.open("GET", "jasonBD.php", true);
+          xhttp.send();
+        }
+
+        function loadCiutats(idruta) {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              $("#json2").html(this.responseText);
+              var ruta2 = JSON.parse(this.responseText);
+
+              var item0 = $("<option/>", {value:"0", text:"Selecciona"});
+              $("#ciutat").append(item0);
+
+              for (x in ruta2) {
+                var idRuta = ruta2[x].id;
+                var nomRuta = ruta2[x].nom;
+                var item = $("<option/>", {value:idRuta, text:nomRuta});
+                $("#ciutat").append(item);
+              }
+            }
+          };
+          xhttp.open("GET", "jasonBDinner.php?ruta=" + idruta , true);
+          xhttp.send();
+        }
+
+        loadRutes();
+
+      });
+    </script>
+  </body>
+</html>
