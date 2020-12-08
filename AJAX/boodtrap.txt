@@ -1,0 +1,29 @@
+BOODTRAP
+
+alert bood strap
+
+conta cuants d'alrets s'han oberts
+per detectar
+2.6
+mirar a boodstrap alert methods.
+posam es alert-disissable dins un div, x lo tant es button esta dins es div.
+
+3.1 buttons
+
+$('.btn').button(); // detecta es boodstrap un boto.
+
+4.1 carrusels
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+aquest div se comporta com un carrusel
+pq se comporti com a tal a Java has d posar $("carrusel").carousel.(0); es numeros son ses posisions de es items, com surten.
+4.3 mirar com fer-ho java Script
+4.4 opcions carrusel
+wrap si es TRUE fa un cicle, False nomes fa una pasada.
+
+
+6.1
+Menus desplegables.
+
+7.0
+MODAL
+div que permet o no configurar el mode de funcionament

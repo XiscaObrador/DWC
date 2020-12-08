@@ -40,6 +40,7 @@
 
         $("#rutes").change(function(){
           var idruta = $("#ruta").val();
+          console.log("ID RUTA:"+idruta);
           $("#ciutat" ).prop( "disabled", false );
           $("#ciutat").empty();
           loadCiutats(idruta);

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+      <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Carousel</h1>
+      <div id="slider" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators"></ol>
+        <div class="carousel-inner"></div>
+      </div>
+      <br/>
+      <h4>Contingut del fitxer JSON:</h4>
+      <p id="demo"></p>
+    </div>
+
+    <script>
+
+        $(document).ready(function(){
+
+            function loadFoto(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function (){
+                    if(this.readyState == 4 && this.status == 200){
+                        $("#demo").html(this.responseText);
+                        var foto = JSON.parse(this.responseText);
+                        for ( var i = 2; i< foto.length; i++){
+                            var num = i - 2 ;
+
+                            var nouLI = $("<li/>");
+                            nouLI.attr("data-target","#slider");
+                            nouLI.attr("data-slide-to",num);
+                            if(i==3){
+                                nouLI.addClass("active");
+                            }
+                            $("slider").children("ol").append(nouLI);
+
+                            //DIVS//
+
+                            var nouDIV = ("<div/>");
+                            nouDIV.addClass("carosuel-item");
+                            if(i==2){
+                                nouDIV.addClass("active");
+                            }
+                            var foto = "img/fotos[i]";
+                            nouImg = $("<img/>",{src:foto, alt:foto})
+                            nouDIV.append(nouIMG);
+                            $("#slider").children("div").append(nouDIV);
+                            $("#slider").children("div").append(nouDIV);
+                        }
+                    }
+                };
+                xhttp.open("GET", "carrusel.php", true);
+                xhttp.send();
+            }
+
+            loadFoto();
+          
+        });
+      
+    </script>
+  </body>
+</html>
