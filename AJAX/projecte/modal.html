@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+      <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <title>Modal JSON</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>MODAL JSON</h1>
+      <form>
+        <div class="form-group">
+          <select id="meuSelect" class="form-control">
+            <option value="0">Selecciona</option>
+          </select>
+        </div>
+      </form>
+      <h4>JSON Rutes</h4>
+      <p id="demo"></p>
+
+      <h4>JSON Ciutat selecionada</h4>
+      <p id="demo2"></p>
+
+    <!-- container -->
+    </div>
+      <!-- Modal Edita Ciutat -->
+      <div id="modalEdita" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <!-- header modal -->
+
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edita Ciutat</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+
+            <!-- body modal -->
+
+
+            <div class="modal-body">
+              <form role="form" name="formEdita" action="edita.php" method="get">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label>Nom:</label>
+                          <input id="nomc" type="text"class="form-control" placeholder="Nom Ciutat" name="nom">
+                      </div>
+                      <div class="col-md-6">
+                        <label>CP:</label>
+                        <input id="cpc" type="text" class="form-control" placeholder="CP Ciutat" readonly="readonly" name="id">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Poblacio:</label>
+                        <input id="poblacioc" type="text" class="form-control" placeholder="Poblacio Ciutat" readonly="readonly" name="id">
+                    </div>
+                  </div>
+              </form>
+            </div>
+
+
+            <!-- footer modal -->
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Tanca</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <script>
+      $(document).ready(function(){
+
+        function loadCiutat(idRuta) {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              $("#demo2").html(this.responseText);
+              var ciutat = JSON.parse(this.responseText)[0];
+            // per sa ruta selecionada, cream una variable que, per sa ciutat de sa ruta, mos posi dins es div des modal, lo que volem.
+            // sabem sa id de sa ruta mb un get , el cual sa id li pasam b so select.
+              
+              $("#nomc").val(ciutat.nom); 
+              $("#cpc").val(ciutat.cp);
+              $("#poblacioc").val(ciutat.poblacio);
+
+              $("#modalEdita").modal();
+            }
+          };
+          xhttp.open("GET", "modalSelectInner.php?ruta="+idRuta, true);
+          xhttp.send();
+        }
+
+        function loadRuta() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              $("#demo").html(this.responseText);
+              var ruta = JSON.parse(this.responseText);
+              for (i in ruta) {
+                var id = ruta[i].id;
+                var nom = ruta[i].nom;
+                var r = $("<option/>", {value:id, text:nom}); 
+                $("#meuSelect").append(r);  // a nes jason de ruta, per cada itiracio de bucle treim es nom i id, i es nom el posam dins opcion de select // 
+                                            // es var r es sa ruta, i amb .append es nou que cream ho posam devall//
+              }
+            }
+          };
+          xhttp.open("GET", "jasonBD.php", true);
+          xhttp.send();
+        }
+
+        loadRuta();
+
+        $("#meuSelect").change(function(){
+          var id = $(this).val();
+          loadCiutat(id);
+        });
+
+        $('#bSubmit').click(function() {
+          $('form[name="formEdita"]').submit();
+        });
+
+      });
+    </script>
+  </body>
+</html>

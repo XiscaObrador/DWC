@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- Script per validar -->  
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+    <title>Form Validation</title>
+</head>
+<body>
+    
+    <h2>Formulari</h2> 
+
+    <form>
+        <div class="form-group">
+            <label>Nom</label>
+            <input id="nom" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input id="email" class="form-control">
+        </div>  
+        <div class="form-group">
+            <label>Edat</label>
+            <input id="edat" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Any naixament</label>
+            <input id="any" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Telfon</label>
+            <input id="tlf" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Contrasenya</label>
+            <input id="pswd" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Repeteix contrasenya</label>
+            <input id="pswdR" class="form-control">
+        </div>
+    </form> 
+    
+    <script>
+        bootstrapValidate('#nom','required:Aquest camp es obligatori!');
+        bootstrapValidate('#email','email:Enter a valid E-Mail Address!');
+        bootstrapValidate('#edat','max:3:Màxim 3 digits!');
+        bootstrapValidate('#any','min:4:Minim 4 digits!');
+        bootstrapValidate('#tlf','numeric:Caracter no valid');
+        bootstrapValidate('#pswd','matches:#pswdR:Les contrasenyes han de coincidir!');
+        bootstrapValidate('#pswdR','matches:#pswd:Les contrasenyes han de coincidir!');
+    </script>
+</body>
+</html>
