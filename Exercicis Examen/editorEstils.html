@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery-3.5.1.js" ></script>
+	<style>
+		.vermell {
+		color:red;
+		}
+		.verd {
+		color:green;
+		}
+		.blau {
+		color:blue;
+		}
+		.courier {
+		font-family:Courier;
+		}
+		.arial {
+		font-family:Arial;
+		}
+		.verdana {
+			font-family:Verdana;
+		}
+	</style>
+</head>
+<body>
+		<fieldset><legend>EDIT STYLES</legend>
+			<textarea cols="150" rows="10" id="txt"></textarea><br/>
+			FONT:
+			<select id="selfont">
+					<option value="courier">Courier</option>
+					<option value="verdana">Verdana</option>
+					<option value="arial">Arial</option>
+			</select> &nbsp;
+			COLOR:
+			<select id="selcolor">
+					<option value="vermell">Vermell</option>
+					<option value="verd">Verd</option>
+					<option value="blau">Blau</option>
+			</select> &nbsp;
+			SIZE:
+			<input type="text" value="10" id="txtsize" size="4"/>
+			<button id="b1">APPLY STYLES</button>&nbsp;
+			<button id="b2">RESET STYLES</button>&nbsp;
+		</fieldset>
+	<hr/>
+	<div>
+	<p id="textEditar"></p>
+	</div>
+
+    <script>
+
+		function resetStils(){
+			$("#textEditar").removeClass("vermell");
+			$("#textEditar").removeClass("verd");
+			$("#textEditar").removeClass("blau");
+			$("#textEditar").removeClass("courier");
+			$("#textEditar").removeClass("verdana");
+			$("#textEditar").removeClass("arial");
+			$("#textEditar").css("fontSize", "10px");
+		}
+         $(document).ready(function(){
+			   $("#b1").click(function(){
+				  resetStils();
+				   var texte = $('#txt').val();
+				   $("#textEditar").text(texte);
+				   var font = $("#selfont").val();
+				   if(font == "courier"){
+					$('#textEditar').addClass("courier");
+				   }
+				   if(font == "verdana"){
+					$('#textEditar').addClass("verdana");
+				   }
+				   if(font == "arial"){
+					$('#textEditar').addClass("arial");
+				   }
+
+				   var color = $("#selcolor").val();
+				   if(color == "blau"){
+					$('#textEditar').addClass("blau");
+				   }
+				   if(color == "verd"){
+					$('#textEditar').addClass("verd");
+				   }
+				   if(color == "vermell"){
+					$('#textEditar').addClass("vermell");
+				   }
+
+				   var talla= $("#txtsize").val()+"px";
+				   $("#textEditar").css("fontSize", talla);
+			   });
+			   $("#b2").click(function(){
+				   resetStils();
+				   var texte = $("#txt").val();
+				   $("#textEditar").text(texte);
+			   });
+            });
+    </script>
+</body>
+</html>

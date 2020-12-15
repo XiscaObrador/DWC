@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.5.1.js"></script>
+    <title>Book Store</title>
+</head>
+<body>
+
+    TITOL : <input type="text" id="titol"><br>
+    NUM. PAGINES : <input type="number" id="numPag"><br>
+    CATEGORIA : 
+    <select id="categorias">
+        <option value="clasic">Clasic</option>
+        <option value="ciencia">Ciencia</option>
+        <option value="sports">Sports</option>
+        <option value="comedia">Comedia</option>
+    </select> 
+    <br>
+    Posicio Columna/Fila : 
+    <select id="columna">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select> / 
+    <select id="fila">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+    <br>
+    <button id="b1">ADD LLIBRE</button> 
+		<button id="b2">BORRAR LLIBRE</button> 
+		<button id="b3">IMPRIMIR LLIBRES</button>
+		<button id="b4">IMPRIMIR LLIBRERIA</button>
+		<button id="b5">NUM DE LLIBRES</button>
+		<hr/>
+		<div id="printer"></div>
+</body>
+
+    <script>
+        var llibres = new Array();
+
+        function Llibre ( titol, pag, categoria, columna, fila){
+            this.titol = titol;
+            this.pag = pag;
+            this.categoria = categoria;
+            this.columna = columna;
+            this.fila = fila;
+        }
+
+        // retorna llibre de sa posicio selecionada
+
+        function tornaLlibre(col,fil){
+            for( var i = 0; i < llibres.length; i++){
+                var llibre = llibres[i];
+
+                if(llibre.columna == col && llibre.fila == fil){
+                    return llibre;
+                }
+            }
+            return null;
+        }
+
+        // borram es llibre de sa poicio trobada a dalt.
+        function borrarLlibre(col,fil){
+            for( var i = 0; i<llibres.length ; i++){
+                var llibre = llibres[i];
+
+                if(llibre.columna == col && llibre.fila == fil){
+                    llibres.splice(i,1);
+                }
+            }
+        }
+
+        // imprimir taula 
+
+        function imprimirTaula( NumColumna , NumFila){
+            var txt =  "<table border='1'>";
+                txt += "<tr><th>#</th><th></th><th>1</th><th>2</th><th>3</th></tr>";
+
+                for( var fila = 0; fila < NumFila ; fila ++){
+                    txt+="<tr><td><b>"+fila+"</b></td>";
+                        for( var columna = 0 ; columna < NumColumna ; columna ++){
+                            llibre = tornaLlibre(columna,fila);
+                            if(llibre != null){
+                                info ="<img src='"+llibre.categoria+".png' width='50px' /><br/>";
+						        info += "<b>"+llibre.titol+"</b><br/>"+llibre.categoria;
+						        info +="<br/>"+llibre.pag+" pag.";
+						        txt +="<td>"+info+"</td>";
+                            }
+                            else{
+                                txt+="<td><img src='empty.png' width='50px' /></td>";
+                            }
+                        }
+                    txt+="</tr>";  
+                }
+                txt += "</table>";
+			    return txt;   
+        }
+
+        $(document).ready(function(){
+            //afegir llibre amb boto
+            $("#b1").click(function(){
+                var titol = $('#titol').val();
+                var pag = $('#numPag').val();
+                var categoria = $('#categorias').val();
+                var columna = $('#columna').val();
+                var fila = $('#fila').val();
+                l = new Llibre (titol, pag, categoria, columna, fila);
+                llibres.push(l);
+                llibreria = imprimirTaula(4,4);
+                $("#printer").html(llibreria);
+
+            });
+
+            // borrar llibre
+            $("#b2").click(function(){
+                var c = $("#columna").val();
+                var f = $('#fila').val();
+                borrarLlibre(c,f);
+                llibreria = imprimirTaula(4,4);
+                $('#printer').html(llibreria);
+            });
+
+            // imprimir llibre
+             $('#b3').click(function(){
+                txt = "";
+                for( var i = 0; i< llibres.length; i ++){
+                    l=llibres[i];
+                    txt += i + " // " + l.titol + " , " + l.pag + " , " + l.categoria + " , " + l.columna + " , " + l.fila + "<br/>";
+
+                }
+
+                $('#printer').html(txt);
+             });
+
+             // imprimir llibreria
+
+             $('#b4').click(function(){
+                 llibreria = imprimirTaula(4,4);
+                 $('#printer').html(llibreria);
+             });
+
+             // alter amb num de llibres que hi ha a llibreria
+
+             $('#b5').click(function(){
+                 alert("NUM DE LLIBRES : " + llibres.length);
+             });
+
+        });
+
+
+
+    </script>
+</html>
