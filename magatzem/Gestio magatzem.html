@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Magatzem</title>
+        <meta charset="UTF-8">
+        <script src="paquet.js"></script>
+       <script src="estant.js"></script>
+       <script src="magatzem.js"></script> 
+       
+    </head>
+    <body>
+        <div id="taula"></div>
+        <br>
+        <div>
+            Estant : <input type="text" id="posicio"/></br>
+            Codi : <input type="text" id="codi"/></br>
+            Destinatari : <input type="text" id="destinatari"></br>
+            Pes : <input type="text" id="pes"></br>
+            <button id="b1" onclick="onClickEntrada()">Entrada</button>
+            <button id="b2" onclick="onClicSortida()">Sortida</button>
+            <button id="b3">Calcula PVP</button>
+            <button id="b4">Ordena per pes</button>
+
+        </div>
+        <script>
+            var m = new Magatzem(10);
+            m.crearMagatzem();
+            m.imprimir();
+
+            function onClickEntrada(){
+
+                var posicio = document.getElementById("posicio").value;
+                var codi = document.getElementById("codi").value;
+                var destinatari = document.getElementById("destinatari").value;
+                var pes = document.getElementById("pes").value;
+
+                var p = new Paquet(codi,destinatari,pes);
+
+                m.afegirPaquetEstant(p,parseInt(posicio));
+
+                m.imprimir();
+
+            }
+            function onClicSortida(){
+                var posicio = document.getElementById("posicio").value;
+                var codi = document.getElementById("codi").value;
+                var destinatari = document.getElementById("destinatari").value;
+                var pes = document.getElementById("pes").value;
+
+                var p = new Paquet(codi,destinatari,pes);
+
+                m.llevarPaquetEstant(p,parseInt(posicio))
+
+                m.imprimir();
+
+            }
+    
+        </script>
+    </body>
+</html>
