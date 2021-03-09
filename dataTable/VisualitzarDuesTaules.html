@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>DataTablesJS.</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- css -->
+  
+
+  <!-- js -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+  <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
+</head>
+<body>
+    
+    <div id="container">
+        <table id="ruta" class="display" style="width: 100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>inici</th>
+                    <th>fi</th>
+                    <th>dificultat</th>
+                    <th>tipus</th>
+                    <th>km</th>
+                    <th>foto</th>
+                </tr>
+            </thead>
+        </table>
+ 
+    </div>
+    
+	<script>
+        $(document).ready(function() {
+	    	var r = $('#ruta').DataTable( {
+                ajax : {
+                    url : 'jasonBD.php',
+                    dataSrc : '',
+                    type : 'POST',
+                },
+                columns : [
+                    { data : 'id'},
+                    { data : 'nom'},
+                    { data : 'inici'},
+                    { data : 'fi'},
+                    { data : 'dificultat'},
+                    { data : 'tipus'},
+                    { data : 'km'},
+                    { data : 'foto'},
+                ],
+                language : {
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Catalan.json"
+                }
+            });
+        });
+        
+        function loadData(){
+                r = $('#ruta').DataTable( {
+                ajax : {
+                    url : 'jasonBD.php',
+                    dataSrc : '',
+                    type : 'POST',
+                },
+                columns : [
+                    { data : 'id'},
+                    { data : 'nom'},
+                    { data : 'inici'},
+                    { data : 'fi'},
+                    { data : 'dificultat'},
+                    { data : 'tipus'},
+                    { data : 'km'},
+                    { data : 'foto'},
+                ],
+                language : {
+                    url: "//cdn.datatables.net/plug-ins/1.10.19/i18n/Catalan.json"
+                }
+            });
+            
+        }
+
+
+		
+
+		/*t.column(0).visible(false);
+        t.column(2).visible(false);
+        t.column(3).visible(false);
+        t.column(7).visible(false);*/
+    </script>
+</body>
+</html>
