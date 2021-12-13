@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <style>
+    .redItem {background-color:#FF0000;}
+  </style>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+      <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Llista</h1>
+      <div id="llista"></div>
+    </div>
+    <script>
+        
+      $(document).ready(function(){
+        
+        function loadParking() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              var p = JSON.parse(this.responseText);
+              var i=1;
+              for (x in p) {
+
+                var tm = p[x].timestamp_in;
+                var to = p[x].timestamp_out;
+                var pl = p[x].plate_number;
+                var price = p[x].price;
+                var m = p[x].minutes;
+                
+
+                var nouTR = $("<ul/>");
+                
+                var nouTD = $("<li/>",{text:tm});
+                nouTR.append(nouTD);
+                nouTD = $("<li/>",{text:to});
+                nouTR.append(nouTD);
+                var nouTD = $("<li/>",{text:pl});
+                nouTR.append(nouTD);
+                var nouTD = $("<li/>",{"id":"p", "text":price});
+                nouTR.append(nouTD);
+                var nouTD = $("<li/>",{text:m});
+                nouTR.append(nouTD);
+
+                $("#llista").append(nouTR);
+
+                i++;
+              }
+            }
+          }
+          xhttp.open("GET", "discos.json", true);
+          xhttp.send();
+        } 
+
+        function vermell(){
+          var li = $('#p').text();
+          console.log(li);
+        }
+        loadParking();
+
+        
+        
+        
+      });
+    </script>
+  </body>
+</html>

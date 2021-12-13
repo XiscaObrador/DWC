@@ -1,0 +1,121 @@
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<style>
+#taula {width:50%;float:left;}
+#historial {height: 400px; margin:0px 0px 0px 450px; background-color:yellow;}
+</style>
+</head>
+<body>
+<h1>PARKING</h1>
+<form action="#" style="background-color:#AAAAAA;">
+<fieldset>
+<legend>Parking Admininstration</legend>
+<b>PLATE NUMBER:</b> <input type="text" id="t1" value="" size="5" />
+<b>PARKING PLACE:</b> <select id="s1"></select>
+<button id="b1" >PARK IN</button>
+<button id="b2" >PARK OUT</button>
+<button id="b3" >NUM CARS</button>
+<button id="b4" >SORT</button>
+</fieldset>
+</form>
+<hr/>
+<div id="taula">
+</div>
+<div id="historial">
+<h1>Historial</h1>
+</div>
+<script>
+
+    var ncars=0;
+    var columnes = new Array ("A","B","C");
+    var parking = new Array(new Array("","",""),new Array("","",""),new Array("","",""));
+
+    // INICIALIZAM ES SELCT I L'OMPLIM MB LO QUE HI HA DINS ARRAYS // 
+    function initSelect(){
+        var opt = "";
+        for( i = 0; i<parking.length ; i++){
+            for( j = 0 ; j < parking[0].length; j++ ){
+                var num = i+""+j;
+                var txt = columnes[i] +j;
+                opt += "<option value='"+num+"'>"+txt+"</options>";
+            }
+        }
+        $('#s1').html(opt);
+    }
+     // PER MOSTRAR SI ESTA BUIT O NO //
+    function showParking(){
+        var txt = "<table border='1'><tr><th></th><th>A</th><th>B</th><th>C</th></tr>";
+            for( var i = 0; i<parking.length;i++){  // TE 3 ARRAYS OSIGI SES 3 COLUMNES
+                txt+="<tr><th>"+i+"</th>";          // FAIG 3 COLUMNES PQ S'ARRAY ES DE 3
+                    for(var j=0;j<parking[0].length;j++){
+                        if(parking[i][j]=="EMPTY"){
+                            txt+= "<td><img src='empty.png'/><br/>&nbsp;</td>"; 
+                        }else{
+                            txt+="<td style='text-align:center;'><img src='car.png'/><br/>"+parking[i][j]+"</td>"; // 
+                        }
+                    }
+                    txt+="</tr>";
+            }
+            txt+="</table>";
+            $('#taula').html(txt);
+    }
+
+    // INICIALITZAM ES PARKING PQ SURTI Q ESTA TOT BUIT // 
+    function initParking(){
+        for(i=0;i<parking.length;i++){
+            for(j=0;j<parking[0].length;j++){
+                parking[i][j] = "EMPTY";
+            }
+        }
+    }
+
+    $(document).ready(function(){
+        initSelect();
+        initParking();
+        showParking();
+
+        $('#b1').click(function(){
+            var matricula = $('#t1').val();
+            var select = $('#s1').val();
+            var fila = parseInt(select[0]); // AGAFAM DES SELECT A B o C  agafam es valor= que es 00 - 01 - 02 - 11 etc //
+            var column = parseInt(select[1]); // AGAFAM DES SELECT ES NUMERO 1 -2 - 3 //
+            
+            if(parking[fila][column] == 'EMPTY'){
+                parking[fila][column] = matricula;
+                ncars ++ ;     // SUM A SA VARIABLE NCARS ++ CADA VEGADA Q AFEGESC UN COTXO
+                showParking();
+            }else{
+                alert("Es parking ja esta ocupat");
+            }
+        });
+
+        $('#b2').click(function(){
+            var matricula = $('#t1').val();
+            var select = $('#s1').val();
+            var fila = parseInt(select[0]); // AGAFAM DES SELECT A B o C  agafam es valor que es 00 - 01 - 02 - 11 etc //
+            var column = parseInt(select[1]); // AGAFAM DES SELECT ES NUMERO 1 -2 - 3 //
+             //console.log(select);
+            
+            if(parking[fila][column] != 'EMPTY'){
+                parking[fila][column] = 'EMPTY';
+                ncars -- ;     // SUM A SA VARIABLE NCARS ++ CADA VEGADA Q AFEGESC UN COTXO
+                showParking();
+            }else{
+                alert("Es parking ja esta buit");
+            }
+        });
+
+        $('#b3').click(function(){
+
+            alert('Num total de cotxes es : ' + ncars);
+        });
+
+
+    });
+	
+    
+
+</script>
+</body>
+</html>

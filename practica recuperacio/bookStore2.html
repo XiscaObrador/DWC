@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+	<style>
+		td { text-align:center;}
+	</style>
+	<body>
+		TITLE: <input type="text" id="title" /><br/>
+		NUM.PAGES: <input type="text" id="pages" /><br/>
+		CATEGORY:
+		<select id="cats">
+			<option value="CLASSIC">CLASSIC</option>
+			<option value="SCIENCE">SCIENCE</option>
+			<option value="SPORTS">SPORTS</option>
+			<option value="COMEDY">COMEDY</option>
+		</select> <br/>
+		POSITION (COL / ROW):
+		<select id="col">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select> /
+		<select id="row">
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select> <br/>
+		<button id="b1">ADD BOOK</button> 
+		<button id="b2">REMOVE BOOK</button> 
+		<button id="b3">PRINT ALL BOOKS</button>
+		<button id="b4">PRINT LIBRARY</button>
+		<button id="b5">NUM BOOKS</button>
+		<hr/>
+        <div id="printer"></div>
+        
+        <script>
+            var llibres = new Array();
+
+            function Llibre(t,p,cat,col,fila){
+                this.title = t;
+                this.pag = p;
+                this.categoria = cat;
+                this.column = col;
+                this.fila = fila;
+            }
+
+            // retorna llibre a sa posicio pasada//
+
+            function getBook(col,fila){
+                for(i=0;i<llibres.length;i++){
+                    var llibre = llibres[i];
+                    if(llibre.column == col && llibre.fila == fila){
+                        return llibre;
+                    }
+                }
+                return null;
+            }
+
+            // borrar es llibre de sa posicio pasada//
+
+            function removeBook(col,fila){
+                for(i = 0; i < llibres.length;i++){
+                    llibre = llibres[i];
+                    if(llibre.column == col && llibre.fila == fila){
+                        llibres.splice(i,1);
+                    }
+                }
+            }
+
+            function printTable(col,fila){
+                var table = "<table border = '1'>";
+                    table += "<tr><th>#</th><th></th><th>1</th><th>2</th><th>3</th></tr>";
+                    for(var i=0;i<fila;i++){
+                        table +="<tr><td><b>"+i+"</b></td>";
+                        for( var j= 0; j<col;j++){
+                            llibre = getBook(j,i);
+                            if(llibre != null){
+                                info = "<img src='"+llibre.categoria+".png' width='50px' /><br/>";
+                                info += "<b>"+llibre.title+"</b><br/>"+llibre.categoria;
+                                info += "<br/>"+llibre.pag+" pag.";
+                                table += "<td>"+info+"</td>";
+                            }else{
+                                table += "<td><img src='buit.png' width='50px' /></td>";
+                            }
+                        }
+                        table+="</tr>";
+                    }
+                    table+= "</table>";
+                    return table;
+            }
+
+            $(document).ready(function(){
+                $('#b1').click(function(){
+                    var title = $('#title').val();
+                    var pag = $('#pages').val();
+                    var cat = $('#cats').val();
+                    var col = $('#col').val();
+                    var fil = $('#row').val();
+
+                    llibre = new Llibre(title,pag,cat,col,fil);
+                    llibres.push(llibre);
+                    $('#printer').html(printTable(4,4));
+
+                });
+                $('#b2').click(function(){
+                    var col = $('#col').val();
+                    var fil = $('#row').val();
+
+                    removeBook(col,fil);
+                    $('#printer').html(printTable(4,4));
+                });
+                $('#b3').click(function(){
+                    var txt = "";
+                    for( var i = 0; i<llibres.length;i++){
+                        llibre = llibres[i];
+                        txt += "Posicio: " + i + " Titol: " + llibre.title + "Num pag: " + llibres.pag + " Categoria: " + llibre.categoria + "<br/>"; 
+                    }
+
+                    $('#printer').html(txt);
+                });
+                $('#b4').click(function(){
+                    $('#printer').html(printTable(4,4));
+                });
+
+                $('#b5').click(function(){
+                    alert("Numero de llibres a sa lliberia es: " + llibres.length);
+                });
+            });
+        </script>
+	</body>
+</html>

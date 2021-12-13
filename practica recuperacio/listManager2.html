@@ -1,0 +1,179 @@
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<style>
+.myList {width:280px;float:left; margin: 10px; background-color:#AFA; padding:0px 5px; border-radius: 5px;}
+#d1 {width:50%; float:left; background-color:#DDD;}
+#d2 {width:50%; float:left; background-color:#DDD;}
+.normalItem {background-color:#AAFFAA;}
+.redItem {background-color:#FF0000;}
+.greenItem {background-color:#00FF00;}
+.blueItem {background-color:#0000FF;}
+</style>
+</head>
+<body>
+<h1>LIST MANAGER</h1>
+<div id="d1">
+<form action="#">
+<fieldset>
+<legend>LIST</legend>
+<b>LIST: </b><select id="slist"></select>
+<b>NAME: </b><input type="text" id="tname" value="" size="10" />
+<br/><br/>
+<button id="b1">ADD</button>
+<button id="b2">EDIT</button>
+<button id="b3">EMPTY LIST</button>
+<button id="b4">REMOVE</button>
+</fieldset>
+</form>
+</div>
+<div id="d2">
+<form action="#">
+<fieldset>
+<legend>LIST ITEMS</legend>
+<b>ITEM: </b><select id="sitems"></select>
+<b>TEXT: </b><input type="text" id="titem" value="" size="10" />
+<b>STYLE: </b><select id="sstyle">
+<option value="normalItem">NORMAL</option>
+<option value="redItem">RED</option>
+<option value="greenItem">GREEN</option>
+<option value="blueItem">BLUE</option>
+</select>
+<br/><br/>
+<button id="b5">APPEND</button>
+<button id="b6">PREPEND</button>
+<button id="b7">EDIT</button>
+<button id="b8">REMOVE</button>
+</fieldset>
+</form>
+</div>
+<hr/>
+<div id="lists">
+</div>
+
+<script>
+    function carregaLista(){
+        var x = $('div.myList');
+        var opt = "";
+        for ( i = 0; i<x.length;i++){
+            var optValue = x[i].id;
+            opt += "<option value='"+optValue+"'>" + optValue+"</option>";
+        }
+        $('#slist').html(opt);
+        $('#slist').val(optValue);
+    }
+    
+    function carregaItem(){
+        var selectLlits = $('#slist').val();
+        var x = $('div#'+selectLlits+" ul li");
+        var opt ="";
+        for (i = 0; i < x.length; i++){
+            var optValue = x[i].innerHTML;
+            opt += "<option value='"+optValue+"'>" + optValue + "</option>";
+        }
+        $('#sitems').html(opt);
+        $('#sitems').val(optValue);
+    }
+
+    function borrarTexte(){
+        $('#tname').val("");
+        $('#sitem').val("");
+    }
+
+    $(document).ready(function(){
+        borrarTexte();
+
+        $('#slist').change(function(){
+            carregaItem();
+            borrarTexte();
+        });
+
+        $('#b1').click(function(){
+            var txt = $('#tname').val();
+            var div = $("<div/>", {id:txt, class:"myList"});
+            var h1 = $('<h1/>').html(txt);
+            var ul = $("<ul/>" , {id: "_ul"+txt});
+            div.append(h1);
+            div.append(ul);
+            $('#lists').append(div);
+            carregaLista();
+            carregaItem();
+            borrarTexte();
+        });
+
+        $('#b2').click(function(){
+            var llista = $('#slist').val();
+            var txt = $('#tname').val();
+            $('div#'+llista+" h1").text(txt);
+            $('div#'+llista).attr("id",txt);
+            carregaLista();
+            carregaItem();
+            borrarTexte();
+        });
+
+        $('#b3').click(function(){
+            var llista = $('#slist').val();
+            $('div#'+llista+" ul").empty();
+            carregaItem();
+            borrarTexte();
+        });
+
+        $('#b4').click(function(){
+            var txt = $('#slist').val();
+            $('div#'+txt).remove();
+            carregaLista();
+            carregaItem();
+            borrarTexte();
+        });
+
+        ////ITEMS///
+
+        $('#b5').click(function(){
+            var llista = $('#slist').val();
+            var item = $('#titem').val();
+            var li = $('<li/>',{"id":item , "text":item});
+            var clas = $('#sstyle').val();
+            
+            li.addClass(clas);
+            $('div#'+llista+" ul").append(li);
+            carregaItem();
+            borrarTexte();
+        });
+
+        $('#b6').click(function(){
+            var llista = $('#slist').val();
+            var item = $('#titem').val();
+            var li = $('<li/>',{'id':item , "text":item});
+            var clas = $('#sstyle').val();
+
+            li.addClass(clas);
+            $('div#'+llista+' ul').prepend(li);
+            carregaItem();
+            borrarTexte();
+        });
+
+        $("#b7").click(function(){
+  	        var item = $("#sitems").val();
+  	        var llista = $("#slist").val();
+  	        var nou = $("#titem").val();
+            var myClass = $("#sstyle").val();
+              
+  	        $("div#"+llista+" ul li#"+item).removeClass("normalItem redItem greenItem blueItem");
+            $("div#"+llista+" ul li#"+item).addClass(myClass);
+  	        $("div#"+llista+" ul li#"+item).text(nou);
+  	        $("div#"+llista+" ul li#"+item).attr("id", nou);
+  	        carregaItem();
+            borrarTexte();
+  });
+
+        $("#b8").click(function(){
+  	        var item = $("#sitems").val();
+        	var llista = $("#slist").val();
+  	        $("div#"+llista+" ul li#"+item).remove();
+  	        carregaItem();
+  	        borrarTexte();
+  });
+    });
+</script>
+</body>
+</html>

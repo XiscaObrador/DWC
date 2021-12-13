@@ -1,0 +1,134 @@
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>FORM VALIDATOR</h1>
+<form action="#">
+<fieldset>
+<legend>Form Fields</legend>
+<b>TEXT(REQUIRED):</b> <input type="text" id="t1" value="" size="10" /><span id="m1"></span><br/><br/>
+<b>DATE(DD/MM/YYYY):</b> <input type="text" id="t2" value="" size="10" /><span id="m2"></span><br/><br/>
+<b>NUMBER(BETWEEN 0 AND 99):</b> <input type="text" id="t3" value="" size="5" /><span id="m3"></span><br/><br/>
+<b>EMAIL:</b> <input type="text" id="t4" value="" size="10" /><span id="m4"></span><br/><br/>
+<b>CHECK THREE:</b>
+<input type="checkbox" id="cb1" value="a"/> Option A
+<input type="checkbox" id="cb2" value="b"/> Option B
+<input type="checkbox" id="cb3" value="c"/> Option C
+<input type="checkbox" id="cb4" value="d"/> Option D
+<span id="m5"></span><br/><br/>
+<b>SELECT:</b> 
+<select id="s1">
+<option value="0">Select one</option>
+<option value="A">Option A</option>
+<option value="B">Option B</option>
+<option value="C">Option C</option>
+<option value="D">Option D</option>
+</select>
+<span id="m6"></span><br/><br/>
+<input type="submit" value="VALIDAR" onclick="validateForm();" />&nbsp;<input type="reset" value="RESET" />
+</fieldset>
+</form>
+
+<script>
+    function validarText(){
+        var txt = $('#t1').val();
+        if( txt == ""){
+            $('#t1').css('background','red');
+            $('#m1').text('ERROR');
+        }else{
+            $('#t1').css('background','green');
+            $('#m1').text('OK');
+        }
+    }
+
+    function validarNumero(){
+        var numero = $('#t3').val();
+        if(numero >= 0 && numero <=99 && numero != ""){
+            $('#t3').css('background','green');
+            $('#m3').text('OK');
+        }else{
+            $('#t3').css('background','red');
+            $('#m3').text('ERROR'); 
+        }
+    }
+
+    function validarSelect(){
+        var select = $('#s1').val();
+
+        if(select == 0){
+            $('#s1').css('background','red');
+            $('#m6').text('ERROR');
+        }else{
+            $('#s1').css('background','green');
+            $('#m6').text('OK');
+        }
+    }
+
+    function validarChekBoox(){
+        var n = 0;
+
+        if( $('#cb1').is(':checked')) {
+            n++
+        };
+        if( $('#cb2').is(':checked')){
+            n++;
+        } 
+        if( $('#cb3').is ( ':checked')){
+            n++;
+        }
+        if( $('#cb4').is ( ':checked')){
+            n++;
+        }
+
+        if( n == 3){
+            $('#m5').text('OK');
+            $('#m5').css('background','green');
+        }else{
+            $('#m5').text('ERROR');
+            $('#m5').css('background','red');
+        }
+    }
+
+    function validarData(){
+        var data = $('#t2').val();
+
+        var array = data.split("/");
+        var dia = parseInt(array[0]);
+        var mes = parseInt(array[1]);
+        var any = parseInt(array [2]);
+
+        if ( dia >= 1 && dia <=31 && mes >=1 && mes <= 12 && any >= 1940 && any <=2021){
+            $('#m2').text('OK');
+            $('#t2').css('background','green');
+        }else{
+            $('#m2').text('ERROR');
+            $('#t2').css('background','red');
+        }
+    }
+    
+    function validarEmail(){
+        var email = $('#t4').val();
+        var arroba = email.indexOf('@');
+        var punt = email.lastIndexOf('.');
+
+        if(arroba < 1 || punt < arroba+2 || punt+2 >= email.length){
+            $('#t4').css('background','red');
+            $('#m4').text('ERROR');
+        }else{
+            $('#t4').css('background','green');
+            $('#m4').text('OK');
+        }
+    }
+    
+    function validateForm(){
+        validarText();
+        validarNumero();
+        validarSelect();
+        validarChekBoox();
+        validarData();
+        validarEmail();
+    }
+</script>
+</body>
+</html>
